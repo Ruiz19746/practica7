@@ -1,0 +1,20 @@
+[{
+    "ciudad": "Madrid",
+    "destinos": [
+        "Barcelona",
+        "Valencia",
+        "Sevilla"
+    ]
+}, {
+    "ciudad": "Barcelona",
+    "destinos": [
+        "Madrid",
+        "Zaragoza"
+    ]
+}, {
+    "ciudad": "Alicante",
+    "destinos": [
+        "Madrid",
+        "Barcelona"
+    ]
+}]
