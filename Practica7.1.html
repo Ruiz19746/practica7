@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Práctica 1 - Tema 7</title>
+</head>
+
+<body>
+    <div style="margin: 2em;">
+        <h1>Billes de Autobus</h1>
+        Origen:<select id="origen" onchange="ciudades('datos.txt','listDestino')">
+            <option value="">Origen</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Alicante">Alicante</option>
+          </select>
+        <br/> Destino:
+        <select id="listDestino">
+              </select>
+    </div>
+    <script>
+        var httpRequest;
+        var opcionSel = document.getElementById("origen").value;
+
+        if (window.XMLHttpRequest) {
+            httpRequest = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        function ciudades(origen, elemento) {
+            debugger;
+            // if (opcionSel != "") {
+            if (httpRequest) {
+                var objeto_destino = document.getElementById(elemento);
+                httpRequest.onreadystatechange = respuesta;
+                httpRequest.open("GET", origen);
+                httpRequest.send(null);
+            }
+
+            function respuesta() {
+                if (httpRequest.readyState == 4) {
+                    var datos = JSON.parse(httpRequest.responseText);
+                }
+            }
+            // } else {
+            //     document.getElementById("listDestino").innerHTML = "";
+            // }
+        }
+    </script>
+</body>
+
+</html>
